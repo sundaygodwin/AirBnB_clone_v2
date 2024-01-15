@@ -1,0 +1,34 @@
+body{
+    margin: 0;
+    padding: 0;
+    /*display: flex;
+    flex-direction: column;
+    align-items: center;*/
+    color: #484848;
+    font-size: 14px;
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;  
+}
+.container{
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    max-width: 1000px; 
+}
+
+
+
+/*media query*/
+@media screen and (max-width: 1200px){
+    .container{
+        padding-right: 30px;
+        padding-left: 30px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+}
+@media screen and (max-width: 800px){
+    body{
+        font-size: 12px;
+    }
+}

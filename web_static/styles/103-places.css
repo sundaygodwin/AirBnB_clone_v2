@@ -1,0 +1,266 @@
+.places{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.place_head{
+    float: left;
+    font-size: 30px;
+    flex-basis: 100%;
+    margin-bottom: 0;
+}
+.places > article{
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    border: #FF5A5F 1px solid;
+    border-radius: 4px;
+    text-align: center;  
+}
+article:hover,
+article:focus {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: 0.2s ease-in-out;
+}
+.place_title{
+    font-size: 30px;
+}
+
+.price_by_night{
+    color: #FF5A5F;
+    border: #FF5A5F 4px solid;
+    border-radius: 100%;
+    min-width: 60px;
+    height: 60px;
+    font-size: 30px;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    transition: 0.2s ease-in-out;
+}
+.price_by_night:hover,
+.price_by_night:focus {
+  background-color: beige;
+  transform: scale(1.1);
+  font-weight: bold;
+  border: 2px dotted;
+  transition: 0.2s ease-in-out;
+}
+
+.a_head{
+    display: flex;
+    height: 80px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    /*border: 2px solid brown;*/
+    align-items: center;
+}
+.a_title{
+    flex-basis: 80%;
+}
+.price_by_night > p{
+    text-align: center;
+}
+
+.information{
+    height: 80px;
+    border-top: #DDDDDD 1px solid;
+    border-bottom: #DDDDDD 1px solid;
+    display: flex;
+    justify-content: center;
+    
+}
+.information > .info{
+    width: 100px;
+    height: 100%;
+    margin-left: 3px;
+    margin-right: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.icon{
+    width: 100%;
+    flex-basis: 80%; 
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: flex;
+    padding: 0;
+    transition: 0.2s ease-in-out;
+}
+.icon:hover, .icon:focus,
+.l_icon:hover, .l_icon:focus{
+    background-color: beige;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+.guest_icon{
+    background-image: url(../images/icon_group.png);
+}
+.room_icon{
+    background-image: url(../images/icon_bed.png);
+}
+.bath_icon{
+    background-image: url(../images/icon_bath.png);
+}
+.number{
+    margin: 1px;
+}
+.user_name{
+    text-align: left;
+}
+.owner{
+    font-weight: bold;
+    margin-right: 2px;
+}
+.description{
+    text-align: justify;
+}
+
+.amenities_2, .reviews{
+    margin-top: 40px;
+    width: 100%;
+}
+
+.title{
+    font-size: 16px;
+    width: 100%;
+    border-bottom: #DDDDDD 1px solid;
+    text-align: left;
+}
+.u_list{
+    list-style: none;
+    padding: 0;
+}
+.amenities_2 > ul > li{
+    display: flex;
+    font-size: 15px;
+    padding: 0;
+}
+.l_icon{
+    width: 15px;
+    height: 15px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    padding: 0;
+    margin-right: 10px;
+    transition: 0.2s ease-in-out;
+}
+.tv{
+    background-image: url(../images/icon_tv.png); 
+}
+.wifi{
+    background-image: url(../images/icon_wifi.png); 
+}
+.pet{
+    background-image: url(../images/icon_pets.png); 
+}
+.user_date{
+    font-size: 14px;
+}
+.review_text{
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+.reviews > ul >li{
+    text-align: justify;
+}
+.information p{
+    font-size: 14px;
+    color: rgb(15, 14, 14);
+}
+
+
+
+/*media query*/
+@media screen and (max-width: 900px){
+    
+    .places > article{
+        width: 450px; 
+    }
+}
+@media screen and (max-width: 800px){
+    .place_head{
+        text-align: center;
+        font-size: 25px;
+    }
+    .places > article{
+        width: 450px;
+        padding: 10px;
+        margin: 10px;
+    }
+    .place_title{
+        font-size: 25px;
+    }
+    .price_by_night{
+        min-width: 40px;
+        height: 40px;
+        font-size: 20px;
+        top: 10px;
+        right: 10px;
+    }
+    .a_head{
+        height: 60px;
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+    .information{
+        height: 70px;
+    }
+    .amenities_2, .reviews{
+        margin-top: 20px;
+    }
+    .review_text{
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .places > article{
+        width: 400px; 
+    }
+    .place_title{
+        font-size: 20px;
+    }
+    .price_by_night{
+        min-width: 30px;
+        height: 30px;
+        font-size: 15px;
+        top: 10px;
+        right: 10px;
+    }
+    .a_head{
+        display: flex;
+        height: 50px;
+        margin-top: 0;
+        margin-bottom: 5px;
+        /*border: 2px solid brown;*/
+        align-items: center;
+    }
+    .information{
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .place_head{
+        font-size: 20px;
+    }
+    .places > article{
+        width: 300px; 
+    }
+}
+@media screen and (max-width: 350px){
+    .place_head{
+        font-size: 15px;
+    }
+    .places > article{
+        width: 200px; 
+    }
+}
