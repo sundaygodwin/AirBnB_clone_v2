@@ -9,20 +9,17 @@
 
 
 # Set up my web servers for the deployment of web_static
-
 # Install Nginx if not already installed
 if ! command -v nginx &> /dev/null; then
     sudo apt-get update
     sudo apt-get -y install nginx
 fi
 
-# Create necessary directory structure
-sudo mkdir -p /data/web_static/releases/test/
-sudo mkdir -p /data/web_static/shared/
-sudo touch /data/web_static/releases/test/index.html
+# Create necessary directories if they don't exist
+sudo mkdir -p /data/web_static/releases/test /data/web_static/shared
 
-# Add content to the fake HTML file
-echo "<html>
+# Create a fake HTML file
+Sudo echo "<html>
   <head>
   </head>
   <body>
@@ -30,21 +27,36 @@ echo "<html>
   </body>
 </html>" | sudo tee /data/web_static/releases/test/index.html
 
-# Create symbolic link (remove and recreate if exists)
-sudo rm -rf /data/web_static/current
-sudo ln -s /data/web_static/releases/test/ /data/web_static/current
+# Create or recreate the symbolic link
+sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 
-# Give ownership to the ubuntu user and group
+# Give ownership to the ubuntu user and group recursively
 sudo chown -R ubuntu:ubuntu /data/
 
 # Update Nginx configuration
-nginx_config="/etc/nginx/sites-available/default"
-nginx_alias="location /hbnb_static { alias /data/web_static/current/; }"
-if ! grep -q "$nginx_alias" "$nginx_config"; then
-    sudo sed -i "/listen 80 default_server/a $nginx_alias" "$nginx_config"
-fi
+config_content="
+server {
+    listen 80;
+    server_name _;
+
+    location /hbnb_static {
+        alias /data/web_static/current/;
+    }
+
+    location / {
+        add_header X-Served-By $HOSTNAME;
+        proxy_pass http://127.0.0.1:5000;
+    }
+
+    error_page 404 /404.html;
+    location = /404.html {
+        root /usr/share/nginx/html;
+        internal;
+    }
+}
+"
+
+echo "$config_content" | sudo tee /etc/nginx/sites-available/default
 
 # Restart Nginx
 sudo service nginx restart
-
-echo "Deployment setup completed."
