@@ -9,7 +9,6 @@
 
 
 # Set up my web servers for the deployment of web_static
-# Install Nginx if not already installed
 if ! command -v nginx &> /dev/null; then
     sudo apt-get update
     sudo apt-get -y install nginx
@@ -19,7 +18,7 @@ fi
 sudo mkdir -p /data/web_static/releases/test /data/web_static/shared
 
 # Create a fake HTML file
-Sudo echo "<html>
+echo "<html>
   <head>
   </head>
   <body>
@@ -44,7 +43,7 @@ server {
     }
 
     location / {
-        add_header X-Served-By $HOSTNAME;
+        add_header X-Served-By \$HOSTNAME;
         proxy_pass http://127.0.0.1:5000;
     }
 
@@ -56,7 +55,7 @@ server {
 }
 "
 
-echo "$config_content" | sudo tee /etc/nginx/sites-available/default
+echo "$config_content" | sudo tee /etc/nginx/sites-available/default > /dev/null
 
 # Restart Nginx
 sudo service nginx restart
