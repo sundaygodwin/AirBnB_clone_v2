@@ -19,7 +19,6 @@
     margin-right: 30px;
     opacity: 1;
     margin-left: auto;
-    cursor: pointer;
 }
 .btn:hover{
     opacity: 0.9;
@@ -68,9 +67,8 @@ ul{
     width: auto;
     padding-bottom: 20px;
     padding-left: 0;
-    z-index: 16;
     display: none;
-    margin-top: 0;
+    margin-top: 0; 
 }
 .amenities_1 > .popover{
     padding-top: 20px;
@@ -93,4 +91,55 @@ li{
 .amenities_1:hover > .popover, .locations:hover > .popover{
     display: block;
     cursor: pointer;
+}
+
+
+
+/*media query*/
+@media screen and (max-width: 800px){
+    .filter{
+        height: 50px;
+    }
+    .btn{
+        font-size: 14px;
+        height: 40px;
+    }
+    .loca_head {
+        margin-left: 10%;
+    }
+    .loca_body {
+        margin-left: 10%;
+        font-size: 14px;
+    }
+    .popover{
+        border-radius: 4px;
+        width: auto;
+        padding-bottom: 10px;
+        text-align: justify;
+        z-index: 1;
+        justify-content: left;
+        padding-left: 0;
+        margin-top: 0;
+    }
+    .amenities_1 > .popover{
+        padding-top: 10px;
+        text-align: center;
+    }
+    .popover > li > h2{
+        font-size: 14px;
+    }
+    .popover > li{
+        text-align: center;
+    }
+    .popover > li > ul{
+        padding: 0;
+    }
+    .popover > li > ul > li{
+        text-align: center;
+    }
+}
+@media screen and (max-width: 340px){
+    .filters{
+        display: none;
+    }
 }

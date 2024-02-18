@@ -1,0 +1,23 @@
+footer{
+    background-color: white; 
+    height: 60px; 
+    width: 100%; 
+    position: sticky;
+    bottom: 0; 
+    border-top: 1px solid #CCCCCC;
+    display: flex; 
+    text-align: center; 
+    align-items: center; 
+    justify-content: center;
+}
+
+
+/*media query*/
+@media screen and (max-width: 800px){
+    footer{
+        height: 50px;
+        position: static;
+        background-color:  #00FF00;
+        color: white;
+    }
+}
